@@ -1,0 +1,36 @@
+Define feature vector  B_i={B_i^1,B_i^2,…,B_i^D} for  predict the execution time of a job   
+Set objective function :CostFun_Job=0.5×1/m ∑_(i=1)^m▒〖(Y ̅_i-Y_i)〗^2 +5×FS 
+Create initial population of Job feature vector  BOA=≪B_1,B_2,…,B_N≫  
+Normalization dataset:
+X^'=(X-min)/(max-min) (b-a)+a
+ Divide  data into training and test data
+Creating initial population  of feature vectors
+for i=1 to n
+      if rand<0.5
+        B_i=1
+     else
+〖        B〗_i=0
+     end if
+      Classification Model Training by ANN
+      Evaluation B_i by CostFun_Job=0.5×1/m ∑_(i=1)^m▒(Y ̅_i-Y_i )^2  0.5×FS
+Update best feature vectors  
+end for 
+while (t <= MaxIt)
+for i=1 to n
+   if rand<0.    
+〖              B〗_i (t+1)=B_i (t)+(rand(0,1)×best-B_i (t))×S×〖CostFun_Job(B_i )〗^p
+  else
+        
+〖           B〗_i (t+1)=B_i (t)+(rand(0,1)×B_j (t)-B_k (t))×S×〖CostFun_Job(B_i )〗^p   
+  end if
+Use conversion function:
+   if rand(0,1)<T(B_i)    
+〖              B〗_i (t+1)=¬B_i (t);
+  else
+        
+〖           B〗_i (t+1)=B_i (t)  
+end if
+Update best feature vectors  
+end for
+ end while 
+BestSol vector  for Classification and predict the execution time of a job   
